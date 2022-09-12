@@ -23,36 +23,89 @@ SOFTWARE.
 
 '''
 from pystyle import *
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
+## from selenium import webdriver
+## from selenium.webdriver.common.by import By
+## from selenium.webdriver.support.ui import WebDriverWait
+## from selenium.webdriver.support import expected_conditions as EC
+## from selenium.webdriver.chrome.options import Options
+## from selenium.webdriver.common.keys import Keys
+## from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 import keyboard as kb
+import pyautogui as pag
+import webbrowser as wb
+import os
 
 
-options = Options()
-options.headless = False
-options.page_load_strategy = 'eager'
+## try:
+##     user_email = Write.Input("Email : ", Colors.red, interval=0)
+##     user_pwd = Write.Input("Password : ", Colors.red, interval=0)
+##     
+##     
+##     options = Options()
+##     options.headless = False
+##     options.page_load_strategy = 'eager'
+##     
+##     
+##     
+##     
+##     
+##     driver = webdriver.Chrome(options=options)
+##     
+##     driver.delete_all_cookies() ## Initialise the driver
+##     driver.get(r'https://accounts.google.com/signin/v2/identifier?continue='+\
+##         'https%3A%2F%2Fmail.google.com%2Fmail%2F&service=mail&sacu=1&rip=1'+\
+##         '&flowName=GlifWebSignIn&flowEntry = ServiceLogin')
+##         ## driver.maximize_window()
+##     driver.implicitly_wait(15)
+##     
+##     wait = WebDriverWait(driver, 10)
+##     
+##     
+##     loginBox = driver.find_element_by_xpath('//*[@id ="identifier"]')
+##     loginBox.send_keys(user_email)
+##     
+##     nextButton = driver.find_elements_by_xpath('//*[@id ="identifierNext"]')
+##     nextButton[0].click()
+##     
+##     
+##     
+##     
+##     print('Login Successful...!!')
+## except:
+##     print('Login Failed')
+## 
+## Removing signin as google removed it and there is a long method that i dont want a user to have to setup/use
+## email_field = wait.until(EC.presence_of_element_located((By.NAME, "identifier")))
+## 
+## for n in user_email+"\n":
+##     email_field.send_keys(n)
+##     sleep(0.5)
+## sleep(2)
+## email_field.send_keys(Keys.ENTER)
+## 
+## sleep(10)
+## password_field = wait.until(EC.presence_of_element_located((By.NAME, "Passwd")))
+## 
+## for n in user_pwd+"\n":
+##     password_field.send_keys(n)
+##     sleep(0.5)
+## sleep(2)
+## password_field.send_keys(Keys.ENTER)
+## 
 
-## options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
+os.system('cls')
+## Open gmail login
 
 
-user_email = Write.Input("Email : ", Colors.red, interval=0)
-user_pwd = Write.Input("Password : ", Colors.red, interval=0)
+sleep(10)
+print("Open your browser with gmail on home screen.")
+while True:
+    sleep(1)
+    pag.moveTo(273, 152)
+    pag.click()
+    sleep(1)
+    pag.moveTo()
+    pag.click(429, 156)
 
-
-driver = webdriver.Chrome(options=options) ## Initialise the driver
-driver.get("https://accounts.google.com/v3/signin/identifier?dsh=S89338%3A1662998004781123&continue=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&emr=1&followup=https%3A%2F%2Fmail.google.com%2Fmail%2Fu%2F0%2F&osid=1&passive=1209600&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AQDHYWrfBuZ-D7ZE5VL5bFUQSDCmhI9fANP5uVDAupV_fsE4JnBZFtmcO7RTtihD0fFVecMNrxUiGw")
-## driver.maximize_window()
-wait = WebDriverWait(driver, 10)
-
-
-
-email_field = wait.until(EC.presence_of_element_located((By.NAME, "identifier")))
-email_field.send_keys(user_email)
-kb.press('enter')
-password_field = wait.until(EC.presence_of_element_located((By.NAME, "Passwd")))
-password_field.send_keys(user_pwd)
-kb.press('enter')
